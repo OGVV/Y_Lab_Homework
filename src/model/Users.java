@@ -2,25 +2,36 @@ package model;
 
 public class Users {
 
-    private String user_id;
+    private int user_id;
 
-    public Users() {
-    }
+    private byte user_role;
 
-    public Users(String user_id, String user_login, String user_password) {
+    public Users(int user_id, byte user_role, String user_login, String user_password) {
         this.user_id = user_id;
+        this.user_role = user_role;
         this.user_login = user_login;
         this.user_password = user_password;
+    }
+
+    public byte getUser_role() {
+        return user_role;
+    }
+
+    public void setUser_role(byte user_role) {
+        this.user_role = user_role;
+    }
+
+    public Users() {
     }
 
     private String user_login;
     private String user_password;
 
-    public String getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 

@@ -1,45 +1,64 @@
 package in;
 
-import model.Trainings;
-
 import java.util.Scanner;
 
 public class InData {
 
-    public Trainings createNewTraining() {
+    /*public Trainings createNewTraining() {
         Scanner scanner = new Scanner(System.in);
         Trainings newTraining = new Trainings();
         System.out.println("Введите значение");
-        newTraining.setTraining_id(verifyIntValue(scanner,45));
-        newTraining.setName_training(getString());
+        newTraining.setTraining_id(scanner.nextInt());
+
+        newTraining.setName_training(scanner.nextLine());
+
         System.out.println("Введите значение");
-        newTraining.setTraining_type_id(verifyIntValue(scanner,45));
-        newTraining.setAdditional_comment(getString());
+        newTraining.setTraining_type_id(scanner.nextInt());
+
+        newTraining.setAdditional_option(scanner.nextLine());
+
+        newTraining.setDate_training(getVerifyString());
+
+        newTraining.setCount_spent_calories(scanner.nextInt());
+
+        newTraining.setTime_training(scanner.nextLine());
         return newTraining;
-    }
+    }*/
 
-    public String addTraining(Trainings newTraining){
-        Trainings trainings = newTraining;
-        return trainings.getName_training()+trainings.getTraining_id()+trainings.getAdditional_comment()+trainings.getTraining_type_id();
-    };
-
-    public static int verifyIntValue(Scanner scr, int defaultValue) {
+    public int getVerifyIntValue(int defaultValue) {
+        Scanner scanner = new Scanner(System.in);
         int number;
-        if (scr.hasNextInt()) {
-            number = scr.nextInt();
+        if (scanner.hasNextInt()) {
+            number = scanner.nextInt();
         } else {
             number = defaultValue;
-            scr.next();
-            System.out.println("Вы ввели неверное значение  bad value");
+            scanner.next();
         }
         return number;
     }
 
-    public static String getString(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Please,input string : ");
-        String str=scan.nextLine();
-        return str;
+    public String getVerifyString() {
+        Scanner scanner = new Scanner(System.in);
+        String string;
+        if (scanner.hasNextLine()) {
+            string = scanner.nextLine();
+        } else {
+            string = "";
+            scanner.next();
+        }
+        return string;
+    }
+
+    public Long getVerifyDate() {
+        Scanner scanner = new Scanner(System.in);
+        Long date;
+        if (scanner.hasNextLong()) {
+            date = scanner.nextLong();
+        } else {
+            date = 0L;
+            scanner.next();
+        }
+        return date;
     }
 
 }
